@@ -1,0 +1,19 @@
+{
+  "name": "interactive-image",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wim Jongeneel",
+  "license": "MIT",
+  "dependencies": {
+    "@types/immutable": "^3.8.7"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.2.1",
+    "source-map-loader": "^0.2.1",
+    "typescript": "^2.4.1"
+  }
+}
