@@ -141,6 +141,41 @@ let userList = LinkedList::Create<User>([
 userList.ForEach(user => console.log(user))
 ```
 
+### Filter
+
+```ts
+Filter(f: (_: t) => boolean) : LinkedList<t>
+```
+Return a List for the items where `f` returns true.
+Causes an iteration.
+
+**example:**
+```ts
+let userList = LinkedList::Create<User>([
+  {id: 1, username: 'Dave'},
+  {id: 2, username: 'Also Dave'}
+  {id: 3, username: 'Harry'}
+])
+
+let daves = userList.Filter<User>(
+  user => user.username.contains('Dave')
+)
+```
+
+### Reduce
+```ts
+Reduce<R>(f: (r: R, v: R) => R, value: R) : R
+```
+Turns a List into a single value.
+Causes an iteration
+
+**example:**
+```ts
+let numbers = LinkedList::Create<User>([1, 2, 3])
+
+let total = number.Reduce((r,v) => r + v, 0)
+```
+
 ## setup
 
 ```sh
