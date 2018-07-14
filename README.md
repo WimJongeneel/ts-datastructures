@@ -8,6 +8,8 @@ Datastructures in TypeScript: linked-list, double-linked-list, queue, stack, map
 <T>Create(items: Array<T> = []) : LinkedList<T>
 ```
 A static method that creates a new List.
+
+**example:**
 ```ts
 let emptyList = LinkedList::Create<User>()
 
@@ -21,8 +23,13 @@ let userList = LinkedList::Create<User>([
 ```ts
 AddFirst(item: T) : void
 ```
+
 Adds an item to the list at the first spot.
+
+**example:**
 ```ts
+let emptyList = LinkedList::Create<User>()
+
 userList.addFirst({id: 3, username: 'Harry'})
 ```
 
@@ -30,8 +37,13 @@ userList.addFirst({id: 3, username: 'Harry'})
 ```ts
 AddLast(item: T): void
 ```
-Adds an item to the end of the list
+
+Adds an item to the end of the list.
+
+**example:**
 ```ts
+let emptyList = LinkedList::Create<User>()
+
 userList.AddLast({id: 3, username: 'Harry'})
 ```
 
@@ -39,13 +51,18 @@ userList.AddLast({id: 3, username: 'Harry'})
 ```ts
 Find(item: t): Node<t> | null
 ```
+
 Find the node for an item. This function uses the default equality operator `==`.
-Causes a iteration.
+Causes an iteration.
+
+**example:**
 ```ts
 let dave = {id: 1, username: 'Dave'}
+
 let userList = LinkedList::Create<User>([
   dave
 ])
+
 let node = userList.Find(dave)
 ```
 
@@ -53,13 +70,18 @@ let node = userList.Find(dave)
 ```ts
 Remove(n: Node<t>) : void
 ```
+
 Removes a node from the list.
 causes an iteration.
+
+**example:**
 ```ts
 let dave = {id: 1, username: 'Dave'}
+
 let userList = LinkedList::Create<User>([
   dave
 ])
+
 let node = userList.Find(dave)
 userList.Remove(node)
 ```
@@ -68,13 +90,18 @@ userList.Remove(node)
 ```ts
 RemoveItem(item: t) : void
 ```
+
 Removes a item from the list.
 causes an iteration.
+
+**example:**
 ```ts
 let dave = {id: 1, username: 'Dave'}
+
 let userList = LinkedList::Create<User>([
   dave
 ])
+
 userList.RemoveItem(dave)
 ```
 
@@ -82,9 +109,11 @@ userList.RemoveItem(dave)
 ```ts
 Map<U>(f: (_: T) => U) : LinkedList<U>
 ```
+
 Maps a List to another List by using the provided fucntion.
 Causes an iteration
 
+**example:**
 ```ts
 let userList = LinkedList::Create<User>([
   {id: 1, username: 'Dave'},
@@ -98,9 +127,11 @@ let ids = userList.Map<number>(user => user.id)
 ```ts
 Foreach<u>(f: (_: t) => u) : void
 ```
+
 Executes a side effect for every item in the list.
 Causes an iteration
 
+**example:**
 ```ts
 let userList = LinkedList::Create<User>([
   {id: 1, username: 'Dave'},
