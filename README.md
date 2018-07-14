@@ -1,5 +1,30 @@
 # ts-datastructures
-Datastructures in TypeScript: linked-list, double-linked-list, queue, stack, map
+
+* [Setup](#setup)
+* [Build](#build)
+* [Run](#run)
+* [Linked List](#linked-List)
+* [Double Linked List](#double-linked-List)
+* [Stack](#stack)
+* [Queue](#queue)
+
+## setup
+
+```sh
+yarn install
+```
+
+## Build
+
+```sh
+yarn run webpack
+```
+
+## Run
+
+```sh
+node ./dist/bundle.js
+```
 
 ## Linked List
 
@@ -164,32 +189,76 @@ let daves = userList.Filter<User>(
 
 ### Reduce
 ```ts
-Reduce<R>(f: (r: R, v: R) => R, value: R) : R
+Reduce<R>(f: (value: R, current_item: T) => R, initial_value: R) : R
 ```
 Turns a List into a single value.
 Causes an iteration
 
 **example:**
 ```ts
-let numbers = LinkedList::Create<User>([1, 2, 3])
+let numbers = LinkedList::Create<number>([1, 2, 3])
 
 let total = number.Reduce((r,v) => r + v, 0)
 ```
 
-## setup
+### Any
+```ts
+Any(f: (_: T) => boolean): boolean
+```
+Return `true` if the provided function returns `true` for one of the items in the list.
+Causes an iteration.
 
-```sh
-yarn install
+**example:**
+```ts
+let numbers = LinkedList::Create<number>([1, 2, 3])
+
+let containsTwo = number.Any(n => n == 2)
 ```
 
-## build
+### Any
+```ts
+All(f: (_: T) => boolean): boolean
+```
+Return `true` if the provided function returns `true` for all the items in the list.
+Causes an iteration.
 
-```sh
-yarn run webpack
+**example:**
+```ts
+let numbers = LinkedList::Create<number>([1, 2, 3])
+
+let noNegativeNumbers = number.All(n => n > 0)
 ```
 
-## run
-
-```sh
-node ./dist/bundle.js
+### IsEmpty
+```ts
+IsEmpty() : boolean
 ```
+Returns `true` if the List is empty.
+
+**example:**
+```ts
+let numbers = LinkedList::Create<number>([1, 2, 3])
+
+let isEmpty = numbers.IsEmpty()
+```
+
+### Count
+```ts
+Count(f: (_: t) => boolean = _ => true): number
+```
+Counts the items for witch `f` returns `true`. It counts all items if no function is provided.
+Causes an iteration
+**example:**
+```ts
+let numbers = LinkedList::Create<number>([1, 2, 3])
+
+let itemsInList = LinkedList.Count()
+
+let positiveNumbers = LinkedList.Count(n => n > 0)
+```
+
+## Double Linked List
+
+## Stack
+
+## Queue
