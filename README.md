@@ -3,8 +3,8 @@
 * [Setup](#setup)
 * [Build](#build)
 * [Run](#run)
-* [Linked List](#linked-List)
-* [Double Linked List](#double-linked-List)
+* [Linked List](#linked-list)
+* [Double Linked List](#double-linked-list)
 * [Stack](#stack)
 * [Queue](#queue)
 
